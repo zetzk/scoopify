@@ -1,0 +1,41 @@
+{
+    "version": "1.0.2",
+    "name": "ammx/infousin1454",
+    "type": "project",
+    "authors": [{
+        "name": "devjesus",
+        "email": "jose.jesus@amstedmaxion.com.br"
+    }],
+    "require": {
+        "league/plates": "3.4",
+        "symfony/var-dumper": "5.4",
+        "phpmailer/phpmailer": "6.8",
+        "ramsey/uuid": "4.2.3",
+        "php-di/php-di": "7.0",
+        "vlucas/phpdotenv": "5.6",
+        "symfony/console": "5.3.16",
+        "shuchkin/simplexlsxgen": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "src\\": "src"
+        },
+        "files": [
+            "src/helpers/bootstrap.php",
+            "src/helpers/validation.php",
+            "src/helpers/array.php",
+            "src/helpers/date.php",
+            "src/helpers/html.php",
+            "src/helpers/notification.php",
+            "src/helpers/redirect.php",
+            "src/helpers/sessions.php",
+            "src/helpers/path.php",
+            "src/helpers/view.php",
+            "src/helpers/redirect_helpers.php",
+            "src/helpers/request.php"
+        ]
+    },
+    "license": [
+        "MIT"
+    ]
+}

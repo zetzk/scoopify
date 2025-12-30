@@ -1,0 +1,9 @@
+.space-styled {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1400px) {
+  .space-styled {
+    margin-bottom: 0.6rem;
+  }
+}
