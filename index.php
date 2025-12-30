@@ -1,4 +1,8 @@
 <?php
+
+var_dump("Hi, test for git.");
+die;
+
 require_once __DIR__ . "/vendor/autoload.php";
 
 ini_set('display_errors', true);
