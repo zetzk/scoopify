@@ -202,9 +202,16 @@ function getFirstAndLastName(string $fullName): string
 
 function user()
 {
-    if (isset($_SESSION["user"]))
-        return (object) $_SESSION["user"];
-    return null;
+    if (is_remote()) {
+        if (isset($_SESSION["user"]))
+            return (object) $_SESSION["user"];
+        return null;
+    } else {
+        return (object) [
+            "matricula" => "000001",
+            "nome" => "local user"
+        ];
+    }
 }
 
 
