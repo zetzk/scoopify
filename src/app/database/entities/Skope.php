@@ -7,7 +7,7 @@ use src\support\Status;
 
 class Skope extends Querio
 {
-    protected static string $table = 'bd_amsted.projects';
+    protected static string $table = 'projects';
     protected static string $dbType = 'intranet';
 
     public string $uuid;

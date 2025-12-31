@@ -8,7 +8,7 @@ use src\support\Status;
 
 class Session extends Querio
 {
-    protected static string $table = 'bd_amsted.scoopify_session';
+    protected static string $table = 'scoopify_session';
     protected static string $dbType = 'intranet';
 
     public string $status;
@@ -49,7 +49,7 @@ class Session extends Querio
      *
      * @param int $project_id O identificador único do projeto
      *
-     * @return Session|null Retorna uma instância de Session se encontrada, ou null caso contrário
+     * @return Session|null Retorna a sessão correspondente ao ID do projeto ou null se não encontrada
      */
     static function by_project_id(int $project_id): Session|null
     {
@@ -78,7 +78,7 @@ class Session extends Querio
             "user_name" => $user_name,
             "rule" => $rule
         ];
-        return self::table("bd_amsted.scoopify_session_participants")->create($data);
+        return self::table("scoopify_session_participants")->create($data);
     }
 
 
@@ -91,7 +91,7 @@ class Session extends Querio
      */
     static function participants(int $session_id): array|null
     {
-        return self::table("bd_amsted.scoopify_session_participants")
+        return self::table("scoopify_session_participants")
             ->select()
             ->whereEquals("session_id", $session_id)
             ->finish();
@@ -106,7 +106,7 @@ class Session extends Querio
      */
     static function participants_only_keys(int $session_id): array|null
     {
-        $participants = self::table("bd_amsted.scoopify_session_participants")
+        $participants = self::table("scoopify_session_participants")
             ->select()
             ->whereEquals("session_id", $session_id)
             ->finish();
@@ -143,7 +143,7 @@ class Session extends Querio
      */
     static function is_host(int $session_id, string $user_key): bool
     {
-        $participant = self::table("bd_amsted.scoopify_session_participants")
+        $participant = self::table("scoopify_session_participants")
             ->selectOne()
             ->whereEquals("session_id", $session_id)
             ->andWhere("user_key", '=', $user_key)
