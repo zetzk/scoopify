@@ -27,9 +27,9 @@ class SkopeController
      */
     function index()
     {
-        $skopes = Skope::get();
-        $skopes_with_devs = array_filter($skopes, fn(Skope $skope) => !$skope->is_estimated());
-        if (empty($skopes_with_devs))
+        $skopes = array_filter(Skope::get(), fn(Skope $skope) => !$skope->is_estimated());
+        
+        if (empty($skopes)) 
             notification()->success("Não há nenhum escopo disponível para análise hoje 🎉");
 
         return view("skopes.index", ["skopes" => $skopes]);
