@@ -25,7 +25,7 @@ async function users_fill(participants) {
                                     <img src="https://i.pravatar.cc/150?img=12" alt="Luiza Santos" class="user-avatar">
                                     <div class="user-info">
                                         <div class="user-name">${participant.user_name}</div>
-                                        <div class="user-email">Entrou há ${getElapsedTime(participant.created_at)}</div>
+                                        <div class="user-email">Joined ${getElapsedTime(participant.created_at)}</div>
                                     </div>
                                     <div class="user-action">
                                         <div class="check-icon">
@@ -40,8 +40,8 @@ async function users_fill(participants) {
 async function participants_quantities(quantities) {
     const statusText = document.getElementById('statusText');
     statusText.innerHTML = quantities > 1 ?
-        `<span>${quantities} participantes conectados</span>` :
-        `<span>Aguardando participantes...</span>`;
+        `<span>${quantities} participants connected</span>` :
+        `<span>Waiting participants...</span>`;
 }
 
 function getElapsedTime(dateString) {

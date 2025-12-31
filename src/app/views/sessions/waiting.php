@@ -19,10 +19,14 @@ $this->layout("templates/base", [
 </div>
 
 
-<!-- message init wrong -->
-<div class="mb-3">
-    <small class="d-flex justify-content-center align-items-center">Started the session by mistake? &nbsp; <a class="d-flex align-items-center justify-content-center g-3"><i class="ph ph-arrow-left me-1"></i> go back</a></small>
-</div>
+<?php if ($is_host) { ?>
+    <!-- message init wrong -->
+    <div class="mb-3">
+        <small class="d-flex justify-content-center align-items-center">Started the session by mistake? &nbsp; <a
+                class="d-flex align-items-center justify-content-center g-3" href="<?= route("skopes.index"); ?>"><i
+                    class="ph ph-arrow-left me-1"></i> close session</a></small>
+    </div>
+<?php } ?>
 
 <!-- header/title -->
 <div>
@@ -44,7 +48,7 @@ $this->layout("templates/base", [
         </svg>
     </div>
     <div class="status-text" id="statusText">
-        <span>Aguardando participantes...</span>
+        <span>Awaiting participants...</span>
     </div>
 </div>
 
@@ -63,13 +67,9 @@ $this->layout("templates/base", [
         <div class="wait-load"></div>
     </div>
 </div>
-
-
-
 <!-- go to session (só é exibido para o host) -->
 <?php if ($is_host) { ?>
     <div class="d-flex justify-content-center align-items-center flex-column mt-4">
-        <small class="text-muted">Already? <a href="" class="">Go Now 🚀</a></small>
+        <small class="text-muted">Already? <a href="" class="">go now 🚀</a></small>
     </div>
 <?php } ?>
-
