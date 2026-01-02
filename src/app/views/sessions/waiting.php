@@ -48,7 +48,7 @@ $this->layout("templates/base", [
         </svg>
     </div>
     <div class="status-text" id="statusText">
-        <span>Awaiting participants...</span>
+        <span>Waiting participants...</span>
     </div>
 </div>
 

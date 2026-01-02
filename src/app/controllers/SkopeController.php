@@ -2,6 +2,7 @@
 
 namespace src\app\controllers;
 
+use src\app\database\entities\Session;
 use src\app\database\entities\Skope;
 use src\support\View;
 
@@ -12,10 +13,12 @@ class SkopeController
      * 
      * Inicializa o controller com as dependências necessárias através de injeção de dependência.
      */
-    function __construct() {}
+    function __construct()
+    {
+    }
 
 
-    
+
     /**
      * Exibe a listagem de escopos (skopes)
      * 
@@ -28,10 +31,15 @@ class SkopeController
     function index()
     {
         $skopes = array_filter(Skope::get(), fn(Skope $skope) => !$skope->is_estimated());
-        
-        if (empty($skopes)) 
+
+        if (empty($skopes))
             notification()->success("Não há nenhum escopo disponível para análise hoje 🎉");
 
-        return view("skopes.index", ["skopes" => $skopes]);
+        $has_active_session = Session::has_active_session();
+
+        return view("skopes.index", [
+            "skopes" => $skopes,
+            "has_active_session" => $has_active_session,
+        ]);
     }
 }

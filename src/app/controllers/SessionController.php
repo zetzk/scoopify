@@ -94,6 +94,7 @@ class SessionController
      */
     public function close(string $uuid)
     {
+        /** @var Session */
         $session = Session::getByUuid($uuid)
             ?? throw new NotFoundSessionException(["data" => $uuid]);
 

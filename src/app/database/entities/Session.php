@@ -161,4 +161,13 @@ class Session extends Querio
             ->finish();
         return $participant != null;
     }
+
+
+
+    static function has_active_session(): bool
+    {
+        $has_session = self::selectOne()
+            ->finish();
+        return !in_array($has_session, [null, false]);
+    }
 }
