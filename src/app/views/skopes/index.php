@@ -78,6 +78,6 @@ $this->layout("templates/base", [
 <?php } else { ?>
     <div id="session" class="d-flex flex-column align-items-center justify-content-center flex-direction-column">
         <h4 class="fw-bold">SESSÃO EM ANDAMENTO 🔄</h4>
-        <img src="<?= path()->images("work-in-progress.svg") ?>" alt="404 not found">
+        <img src="<?= path()->images("work-in-progress.svg") ?>" alt="Session in progress">
     </div>
 <?php } ?>

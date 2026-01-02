@@ -164,6 +164,11 @@ class Session extends Querio
 
 
 
+    /**
+     * Verifica se há uma sessão ativa.
+     *
+     * @return bool Retorna true se houver uma sessão ativa, false caso contrário
+     */
     static function has_active_session(): bool
     {
         $has_session = self::selectOne()

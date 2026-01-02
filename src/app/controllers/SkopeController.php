@@ -35,11 +35,9 @@ class SkopeController
         if (empty($skopes))
             notification()->success("Não há nenhum escopo disponível para análise hoje 🎉");
 
-        $has_active_session = Session::has_active_session();
-
         return view("skopes.index", [
             "skopes" => $skopes,
-            "has_active_session" => $has_active_session,
+            "has_active_session" => Session::has_active_session(),
         ]);
     }
 }
