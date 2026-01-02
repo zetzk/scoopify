@@ -539,7 +539,7 @@ class Querio
      */
     public static function deleteByUuid(string $uuid): bool
     {
-        return static::delete()->where('id', "=", $uuid)->finish();
+        return static::delete()->where('uuid', "=", $uuid)->finish();
     }
 
     public static function softDeleteById(int $id): bool
