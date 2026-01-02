@@ -23,7 +23,7 @@ $this->layout("templates/base", [
     <!-- message init wrong -->
     <div class="mb-3">
         <small class="d-flex justify-content-center align-items-center">Started the session by mistake? &nbsp; <a
-                class="d-flex align-items-center justify-content-center g-3" href="<?= route("skopes.index"); ?>"><i
+                class="d-flex align-items-center justify-content-center g-3" href="<?= route("session.close", ["uuid" => $session->uuid]); ?>"><i
                     class="ph ph-arrow-left me-1"></i> close session</a></small>
     </div>
 <?php } ?>

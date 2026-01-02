@@ -70,7 +70,7 @@ class SessionController
         $user = user();
 
 
-        Session::join( 
+        Session::join(
             $session->id,
             $user->matricula,
             $user->nome,
@@ -84,6 +84,24 @@ class SessionController
         ]);
     }
 
+
+    /**
+     * Fecha uma sessão específica pelo seu UUID.
+     *
+     * @param string $uuid The unique identifier of the session to close
+     * @return Redirect Redirects to skopes.index with success message or error response
+     * @throws NotFoundSessionException When session with given UUID is not found
+     */
+    public function close(string $uuid)
+    {
+        $session = Session::getByUuid($uuid)
+            ?? throw new NotFoundSessionException(["data" => $uuid]);
+
+        if (!$session->close())
+            return backError("Failed to close session.");
+
+        return redirect()->route("skopes.index")->withSuccess("Session closed successfully.");
+    }
 
 
     /**

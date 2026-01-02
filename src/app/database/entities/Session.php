@@ -45,6 +45,16 @@ class Session extends Querio
     }
 
     /**
+     * Fecha a sessão atual.
+     * @return bool Retorna true se a sessão foi fechada com sucesso, false caso contrário
+     */
+    function close(): bool
+    {
+        return self::deleteByUuid($this->uuid);
+    }
+
+
+    /**
      * Obtém uma sessão pelo ID do projeto.
      *
      * @param int $project_id O identificador único do projeto
